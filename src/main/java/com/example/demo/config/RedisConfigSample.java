@@ -7,13 +7,13 @@ import org.springframework.stereotype.Component;
 public class RedisConfigSample {
 
     @Value("${spring.redis.host}")
-    String host;
+    private String host;
 
     @Value("${spring.redis.port}")
-    String port;
+    private Integer port;
 
     @Value("${spring.redis.password}")
-    String password;
+    private String password;
 
     public RedisConfigSample() {
     }
@@ -26,11 +26,11 @@ public class RedisConfigSample {
         this.host = host;
     }
 
-    public String getPort() {
+    public Integer getPort() {
         return port;
     }
 
-    public void setPort(String port) {
+    public void setPort(Integer port) {
         this.port = port;
     }
 

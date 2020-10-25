@@ -1,17 +1,28 @@
 package com.example.demo.config;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.data.redis.connection.RedisStandaloneConfiguration;
 import org.springframework.data.redis.connection.jedis.JedisConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.serializer.GenericToStringSerializer;
-import org.springframework.stereotype.Component;
 
-@Component
+@Configuration
 public class JedisConnectionFactoryConfig {
 
+    private RedisConfigSample config;
+
+    @Autowired
+    public JedisConnectionFactoryConfig(RedisConfigSample config) {
+        this.config = config;
+    }
+
     @Bean
-    JedisConnectionFactory jedisConnectionFactory() {
-        return new JedisConnectionFactory();
+    public JedisConnectionFactory jedisConnectionFactory() {
+        RedisStandaloneConfiguration redisConfig = new RedisStandaloneConfiguration(this.config.getHost(), this.config.getPort());
+        redisConfig.setPassword(this.config.getPassword());
+        return new JedisConnectionFactory(redisConfig);
     }
 
     @Bean
