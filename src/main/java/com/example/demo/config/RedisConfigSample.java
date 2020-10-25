@@ -6,13 +6,13 @@ import org.springframework.stereotype.Component;
 @Component
 public class RedisConfigSample {
 
-    @Value("${redis.host}")
+    @Value("${spring.redis.host}")
     String host;
 
-    @Value("${redis.port}")
+    @Value("${spring.redis.port}")
     String port;
 
-    @Value("${redis.password}")
+    @Value("${spring.redis.password}")
     String password;
 
     public RedisConfigSample() {

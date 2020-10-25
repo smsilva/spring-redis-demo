@@ -1,17 +1,18 @@
 package com.example.demo.domain.person.entity;
 
 import org.springframework.data.redis.core.RedisHash;
+import org.springframework.stereotype.Component;
 
+import java.io.Serializable;
+
+@Component
 @RedisHash("Person")
-public class Person {
+public class Person implements Serializable {
 
-    public enum Gender {
-        MALE, FEMALE
-    }
+    private static final long serialVersionUID = 1L;
 
     private String id;
     private String name;
-    private Gender gender;
     private int grade;
 
     public Person() {
@@ -31,14 +32,6 @@ public class Person {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public Gender getGender() {
-        return gender;
-    }
-
-    public void setGender(Gender gender) {
-        this.gender = gender;
     }
 
     public int getGrade() {

@@ -1,4 +1,5 @@
-redis:
-  host: "${REDIS_HOSTNAME:127.0.0.1}"
-  port: "${REDIS_HOSTPORT:6380}"
-  password: "${REDIS_PASSWORD:GMyIurI2LqvSN/wKsklBUY0KYPUbfiv1maVc6OGhGIikH7Q/7PDlEeF1fZa0fydp+NK0MEuH0oS4mNqx}"
+spring:
+  redis:
+    host: "${REDIS_HOSTNAME:127.0.0.1}"
+    port: "${REDIS_HOSTPORT:6380}"
+    password: ${REDIS_PASSWORD:GMyIurI2LqvSN/wKsklBUY0KYPUbfiv1maVc6OGhGIikH7Q/7PDlEeF1fZa0fydp+NK0MEuH0oS4mNqx}
