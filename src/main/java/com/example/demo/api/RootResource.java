@@ -46,7 +46,7 @@ public class RootResource {
     @EventListener(ApplicationReadyEvent.class)
     public void doSomethingAfterStartup() {
         LOG.info("hello world, I have just started up");
-        this.findAll();
+//        this.findAll();
     }
 
 }
